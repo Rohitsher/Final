@@ -9,7 +9,9 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Actions;
 import org.testng.Assert;
 
+import java.util.Iterator;
 import java.util.List;
+import java.util.Set;
 import java.util.concurrent.TimeUnit;
 
 import ReadExcel.Read_From_Excel;
@@ -36,7 +38,7 @@ public class MyStepdefs {
         try {
 
 
-            String URL = Read_From_Excel.value(0, 1);
+            String URL = "https://www.zigwheels.com/";
 
             driver.get(URL);
 
@@ -60,7 +62,8 @@ public class MyStepdefs {
     public void checkTheURL() {
         try {
             String FoundTitle = driver.getTitle();
-            Assert.assertEquals(FoundTitle, Read_From_Excel.value(1, 1));
+
+            Assert.assertEquals(FoundTitle,"ZigWheels - New Cars, Used Cars, Bikes Prices, News, Reviews, Forum");
 
 
         } catch (Exception e) {
@@ -233,7 +236,7 @@ public class MyStepdefs {
 
     @Then("close the Browser")
     public void closeTheBrowser() {
-        driver.close();
+        //driver.close();
     }
 
     @Then("Move to Used Cars")
@@ -312,16 +315,39 @@ public class MyStepdefs {
     }
     @Then("Move to Login Button")
     public void moveToLoginButton() {
+        try{
         Actions action=new Actions(driver);
-        WebElement element=driver.findElement(By.xpath("/html/body/header/div[1]/div[1]/div[1]/div[4]"));
+        WebElement element=driver.findElement
+                (By.xpath("/html/body/header/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/div/div[1]/div"));
+
         action.moveToElement(element).perform();
-        element.click();
+        System.out.println("fun passed");
+        }
+
+        catch (Exception e){
+            System.out.println("fun failed");
+        }
+
 
     }
     
 
     @And("Click it")
     public void clickIt() {
+        try{
+            Actions action=new Actions(driver);
+            WebElement element=driver.findElement
+                    (By.xpath("/html/body/div[21]/div/div/div/div/div[3]/div[2]"));
+            Thread.sleep(5000);
+
+            element.click();
+            System.out.println("fun passed2");
+            driver.manage().timeouts().implicitlyWait(5,TimeUnit.SECONDS);
+        }
+
+        catch (Exception e){
+            System.out.println("fun failed");
+        }
         
     }
 
@@ -330,16 +356,93 @@ public class MyStepdefs {
 
     @Then("Click on continue with google")
     public void clickOnContinueWithGoogle() {
+        try {
+            Actions actions = new Actions(driver);
+            Set<String> handler = driver.getWindowHandles();
+            Iterator<String> it = handler.iterator();
+            String Parent_window_id = it.next();
+            System.out.println(Parent_window_id);
+            String Child_window_id = it.next();
+            System.out.println(Child_window_id);
+            Thread.sleep(5000);
+            driver.switchTo().window(Child_window_id);
+            Thread.sleep(5000);
+            WebElement element = driver.findElement(By.xpath("/html/body/div[1]/div[1]/div[2]/div/div[2]/div/div/div[2]/div/div[1]/div/form/span/section/div/div/div[1]/div/div[1]/div/div[1]/input"));
+            actions.moveToElement(element);
+            Thread.sleep(5000);
+            String email = "rman.com";
+            element.sendKeys(email);
+            Thread.sleep(5000);
+
+        }
+        catch (Exception e){
+            System.out.println("Cannot send the values");
+        }
         
     }
 
     @And("Give Invalid Credentials")
-    public void giveInvalidCredentials() {
+    public void giveInvalidCredentials() throws InterruptedException {
+        try {
+            Actions actions = new Actions(driver);
+            WebElement next_click = driver.findElement(By.xpath("//*[@id=\"identifierNext\"]/div/button/div[1]"));
+            actions.moveToElement(next_click).perform();
+            Thread.sleep(5000);
+
+            actions.click().perform();
+            System.out.println("clicking next passed");
+        }
+        catch (Exception e){
+            System.out.println("Error in clicking next\n"+e);
+        }
+
         
     }
 
     @Then("Capture the Invalid Message")
-    public void captureTheInvalidMessage() {
+    public void captureTheInvalidMessage() throws InterruptedException {
+        Actions actions = new Actions(driver);
+        try {
+
+            Thread.sleep(5000);
+            WebElement element = driver.findElement(By.xpath("//*[@id=\"next\"]/div/button/div[1]"));
+            actions.moveToElement(element).perform();
+            Thread.sleep(5000);
+            actions.click().perform();
+            System.out.println("Clicked Try again button\n");
+        }
+        catch (Exception e){
+            System.out.println("Error in clicking Try again button\n"+e);
+
+        }
+        try {
+
+
+            Thread.sleep(5000);
+            WebElement element = driver.findElement(By.xpath("/html/body/div[1]/div[1]/div[2]/div/div[2]/div/div/div[2]/div/div[1]/div/form/span/section/div/div/div[1]/div/div[1]/div/div[1]/input"));
+            actions.moveToElement(element);
+            Thread.sleep(5000);
+            String email = "rman.com";
+            element.sendKeys(email);
+            Thread.sleep(5000);
+            System.out.println("Email Entered");
+        }catch (Exception e){
+            System.out.println("Error in Entering the email\n"+e);
+        }
+        try {
+
+            WebElement next_click = driver.findElement(By.xpath("//*[@id=\"identifierNext\"]/div/button/div[1]"));
+            actions.moveToElement(next_click).perform();
+            Thread.sleep(5000);
+
+            actions.click().perform();
+            System.out.println("clicking next passed");
+        }
+        catch (Exception e){
+            System.out.println("Error in clicking next\n"+e);
+        }
+
+
     }
 }
 
