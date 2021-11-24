@@ -32,6 +32,7 @@ Feature: Opening the Browser
     Then Click on continue with google
     And Give Invalid Credentials
     Then Capture the Invalid Message
+    And close the Browser
 
 
 

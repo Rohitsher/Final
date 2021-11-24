@@ -310,7 +310,14 @@ public class MyStepdefs {
         }
 
     }
+    @Then("Move to Login Button")
+    public void moveToLoginButton() {
+        Actions action=new Actions(driver);
+        WebElement element=driver.findElement(By.xpath("/html/body/header/div[1]/div[1]/div[1]/div[4]"));
+        action.moveToElement(element).perform();
+        element.click();
 
+    }
     
 
     @And("Click it")
@@ -319,10 +326,7 @@ public class MyStepdefs {
     }
 
 
-    @Then("Move to Login Button")
-    public void moveToLoginButton() {
-        
-    }
+
 
     @Then("Click on continue with google")
     public void clickOnContinueWithGoogle() {
