@@ -4,11 +4,14 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import io.github.bonigarcia.wdm.WebDriverManager;
+import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Actions;
 import org.testng.Assert;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
@@ -236,7 +239,7 @@ public class MyStepdefs {
 
     @Then("close the Browser")
     public void closeTheBrowser() {
-        //driver.close();
+        driver.close();
     }
 
     @Then("Move to Used Cars")
@@ -400,7 +403,7 @@ public class MyStepdefs {
     }
 
     @Then("Capture the Invalid Message")
-    public void captureTheInvalidMessage() throws InterruptedException {
+    public void captureTheInvalidMessage() throws InterruptedException, IOException {
         Actions actions = new Actions(driver);
         try {
 
@@ -437,10 +440,30 @@ public class MyStepdefs {
 
             actions.click().perform();
             System.out.println("clicking next passed");
+
         }
         catch (Exception e){
             System.out.println("Error in clicking next\n"+e);
         }
+
+
+        Thread.sleep(5000);
+        this.takeSnapShot(driver, "C:\\Users\\hp\\IdeaProjects\\Final\\Images//test.png") ;
+    }
+
+    private void takeSnapShot(WebDriver webdriver, String fileWithPath) throws IOException {
+        TakesScreenshot scrShot =((TakesScreenshot)webdriver);
+//Call getScreenshotAs method to create image file
+        File SrcFile=scrShot.getScreenshotAs(OutputType.FILE);
+//Move image file to new destination
+        File DestFile=new File(fileWithPath);
+//Copy file at destination
+        FileUtils.copyFile(SrcFile, DestFile);
+
+    }
+
+    @Then("Screenshot capture")
+    public void screenshotCapture() {
 
 
     }
