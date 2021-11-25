@@ -448,7 +448,7 @@ public class MyStepdefs {
 
 
         Thread.sleep(5000);
-        this.takeSnapShot(driver, "C:\\Users\\hp\\IdeaProjects\\Final\\Images//test.png") ;
+        this.takeSnapShot(driver, "C:\\Users\\hp\\IdeaProjects\\Final\\Images//test1.png") ;
     }
 
     private void takeSnapShot(WebDriver webdriver, String fileWithPath) throws IOException {

@@ -32,6 +32,8 @@ Feature: Opening the Browser
     Then Click on continue with google
     And Give Invalid Credentials
     Then Capture the Invalid Message
+    Then Screenshot capture
+
     And close the Browser
 
 
