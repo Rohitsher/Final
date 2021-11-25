@@ -47,4 +47,14 @@ public class Store extends LoadDriver {
             System.out.println(webElement.getText());
         }
     }
+    public static char[] disp(){
+
+        char[] notepad=new char[Details.size()];
+        for(int i=0;i<Details.size();i++){
+            String temp=Details.get(i).getText();
+            notepad[i]=temp.charAt(i);
+            return notepad;
+        }
+       return notepad;
+    }
 }
