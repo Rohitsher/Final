@@ -11,7 +11,6 @@ Feature: Opening the Browser
     And click on the Upcoming bikes from the list
     Then Select The manufacturer as honda
     When Results are displayed
-    Then Store all the details
     And Display them All
     Then close the Browser
 
@@ -33,7 +32,6 @@ Feature: Opening the Browser
     And Give Invalid Credentials
     Then Capture the Invalid Message
     Then Screenshot capture
-
     And close the Browser
 
 
