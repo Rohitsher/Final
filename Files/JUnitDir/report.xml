@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<testsuite errors="0" failures="1" name="io.cucumber.core.plugin.JUnitFormatter" skipped="0" tests="3" time="112.9">
+<testcase classname="Opening the Browser" name="Upcoming Bikes" time="26.718">
+<system-out><![CDATA[Given Open the Webdriver....................................................passed
+Then Enter The  URL.........................................................passed
+When Page is Loaded.........................................................passed
+And Check the URL...........................................................passed
+Given The page..............................................................passed
+Then Move to new Bike.......................................................passed
+And click on the Upcoming bikes from the list...............................passed
+Then Select The manufacturer as honda.......................................passed
+When Results are displayed..................................................passed
+And Display them All........................................................passed
+Then close the Browser......................................................passed
+]]></system-out>
+</testcase>
+<testcase classname="Opening the Browser" name="Popular car models" time="28.56">
+<system-out><![CDATA[Given Open the Webdriver....................................................passed
+Then Enter The  URL.........................................................passed
+When Page is Loaded.........................................................passed
+And Check the URL...........................................................passed
+Given The page..............................................................passed
+Then Move to Used Cars......................................................passed
+And Select the city.........................................................passed
+When Page is Loaded.........................................................passed
+Then Move to the Popular cars...............................................passed
+And Store and Display details...............................................passed
+Then close the Browser......................................................passed
+]]></system-out>
+</testcase>
+<testcase classname="Opening the Browser" name="Login with google" time="57.26">
+<failure message="chrome not reachable&#10;  (Session info: chrome=96.0.4664.45)&#10;Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'&#10;System info: host: 'MMA2928P1', ip: '192.168.43.85', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_191'&#10;Driver info: org.openqa.selenium.chrome.ChromeDriver&#10;Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 96.0.4664.45, chrome: {chromedriverVersion: 96.0.4664.45 (76e4c1bb2ab46..., userDataDir: C:\Users\mma2928\AppData\Lo...}, goog:chromeOptions: {debuggerAddress: localhost:62402}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}&#10;Session ID: a4d46c4b629a688d6e9bae7dc0f29b3c" type="org.openqa.selenium.WebDriverException"><![CDATA[Given Open the Webdriver....................................................passed
+Then Enter The  URL.........................................................passed
+When Page is Loaded.........................................................passed
+And Check the URL...........................................................passed
+Given The page..............................................................passed
+Then Move to Login Button...................................................passed
+And Click it................................................................passed
+When Page is Loaded.........................................................passed
+Then Click on continue with google..........................................passed
+And Give Invalid Credentials................................................passed
+Then Capture the Invalid Message............................................passed
+Then Screenshot capture.....................................................failed
+And close the Browser.......................................................skipped
+
+StackTrace:
+org.openqa.selenium.WebDriverException: chrome not reachable
+  (Session info: chrome=96.0.4664.45)
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'MMA2928P1', ip: '192.168.43.85', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_191'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 96.0.4664.45, chrome: {chromedriverVersion: 96.0.4664.45 (76e4c1bb2ab46..., userDataDir: C:\Users\mma2928\AppData\Lo...}, goog:chromeOptions: {debuggerAddress: localhost:62402}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
+Session ID: a4d46c4b629a688d6e9bae7dc0f29b3c
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:609)
+	at org.openqa.selenium.remote.RemoteWebDriver.getScreenshotAs(RemoteWebDriver.java:295)
+	at Login.Screenshot.takeSnapShot(Screenshot.java:16)
+	at Files.MyStepdefs.screenshotCapture(MyStepdefs.java:142)
+	at ✽.Screenshot capture(file:///C:/Users/mma2928/IdeaProjects/Final/src/test/resources/features/openURL.feature:34)
+]]></failure>
+</testcase>
+</testsuite>

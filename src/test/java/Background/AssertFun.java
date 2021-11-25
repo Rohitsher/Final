@@ -1,5 +1,4 @@
 package Background;
-import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 
 public class AssertFun extends LoadDriver {
@@ -8,7 +7,7 @@ public class AssertFun extends LoadDriver {
             String FoundTitle = driver.getTitle();//got the Title of web page
             Assert.assertEquals(FoundTitle, value);//Comparing the values
 
-        } catch (Exception e) {
+        } catch (AssertionError e) {
             System.out.println("Error in the Check the URL");
         }
     }

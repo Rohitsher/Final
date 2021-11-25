@@ -3,6 +3,7 @@ package UpcomingBike;
 import Background.LoadDriver;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import write.WriteInNotepad;
 
 import java.util.List;
 
@@ -14,8 +15,11 @@ public class Store extends LoadDriver {
     }
     public static void display_bikes(){//This function will print all the bike details below 4lakhs
         System.out.println("Bike Model\t\tDate Of Launch\t\tPrice");
+        WriteInNotepad.write_in_notepad("Bike Model\t\tDate Of Launch\t\tPrice");
         try{
+
             for (int i=0;i<Details.size();i++) {
+
 
                 if (i == 6 || i == Details.size()-1) {
                     continue;
@@ -25,6 +29,9 @@ public class Store extends LoadDriver {
                         String model = Details.get(i).getText();
                         String[] m = model.split("\n");
 //Below line will print Bike model,date of launch and Price by using getAttribute method.
+                        WriteInNotepad.write_in_notepad(m[0]);
+                        WriteInNotepad.write_in_notepad(Details.get(i).getAttribute("data-explaunch"));
+                        WriteInNotepad.write_in_notepad(Details.get(i).getAttribute("data-price"));
                         System.out.println(m[0] + "\t\t" + Details.get(i).getAttribute("data-explaunch") + "\t\t" + Details.get(i).getAttribute("data-price"));
                     }
                 }
@@ -47,14 +54,5 @@ public class Store extends LoadDriver {
             System.out.println(webElement.getText());
         }
     }
-    public static char[] disp(){
 
-        char[] notepad=new char[Details.size()];
-        for(int i=0;i<Details.size();i++){
-            String temp=Details.get(i).getText();
-            notepad[i]=temp.charAt(i);
-            return notepad;
-        }
-       return notepad;
-    }
 }

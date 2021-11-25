@@ -16,6 +16,8 @@ import io.cucumber.java.en.When;
 import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 import ReadExcel.Read_From_Excel;
+import write.WriteInNotepad;
+
 public class MyStepdefs extends LoadDriver{
     @Given("Open the Webdriver")
     public void openTheWebdriver() {
@@ -24,6 +26,7 @@ public class MyStepdefs extends LoadDriver{
     @Then("Enter The  URL")
     public void enterTheURL() {
         OpenURL.openurl();//Opens the URL
+
     }
 
     @When("Page is Loaded")
