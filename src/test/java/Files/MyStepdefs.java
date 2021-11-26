@@ -143,7 +143,7 @@ public class MyStepdefs extends LoadDriver{
     @Then("Screenshot capture")
     public void screenshotCapture() throws IOException {
 
-        Login.Screenshot.takeSnapShot(driver, "C:\\Users\\hp\\IdeaProjects\\Final\\Images//test1.png");//capture the screen shot
+        Login.Screenshot.takeSnapShot(driver, "C:\\Users\\mma2928\\IdeaProjects\\Final\\Images\\test5.png");//capture the screen shot
         Second_window.switch_to();
         driver.quit();
     }

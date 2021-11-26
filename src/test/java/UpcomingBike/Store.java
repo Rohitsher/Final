@@ -15,7 +15,6 @@ public class Store extends LoadDriver {
     }
     public static void display_bikes(){//This function will print all the bike details below 4lakhs
         System.out.println("Bike Model\t\tDate Of Launch\t\tPrice");
-        WriteInNotepad.write_in_notepad("Bike Model\t\tDate Of Launch\t\tPrice");
         try{
 
             for (int i=0;i<Details.size();i++) {
@@ -28,11 +27,9 @@ public class Store extends LoadDriver {
                     if (price <= 400000) {
                         String model = Details.get(i).getText();
                         String[] m = model.split("\n");
+
 //Below line will print Bike model,date of launch and Price by using getAttribute method.
-                        WriteInNotepad.write_in_notepad(m[0]);
-                        WriteInNotepad.write_in_notepad(Details.get(i).getAttribute("data-explaunch"));
-                        WriteInNotepad.write_in_notepad(Details.get(i).getAttribute("data-price"));
-                        System.out.println(m[0] + "\t\t" + Details.get(i).getAttribute("data-explaunch") + "\t\t" + Details.get(i).getAttribute("data-price"));
+                        System.out.println(m[0] + "\t\t" + m[2]+ "\t\t" + Details.get(i).getAttribute("data-price"));
                     }
                 }
             }
@@ -51,6 +48,7 @@ public class Store extends LoadDriver {
         //Didplays the popular cars
         System.out.println("The Details of "+value);
         for (WebElement webElement : Details) {
+            WriteInNotepad.write_in_notepad(webElement.getText()+"\n");
             System.out.println(webElement.getText());
         }
     }

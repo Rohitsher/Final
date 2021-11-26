@@ -25,7 +25,7 @@ public class Manufacturer extends LoadDriver {
         }
 
         try {
-            WebElement move_down = driver.findElement(By.xpath("/html/body/main/div/div/div[1]/div[1]/div[2]/div[2]/div/div[3]/div/div/a[1]" ));
+            WebElement move_down = driver.findElement(By.xpath("/html/body/main/div/div/div[1]/div[1]/div[2]/ul/li[15]/span" ));
             DataToDisplay.ScrollToView(move_down,"View More Bikes");
             Thread.sleep(5000);
         } catch (Exception e) {
@@ -39,6 +39,7 @@ public class Manufacturer extends LoadDriver {
                 Actions actions=new Actions(driver);
                 WebElement click_view_more = driver.findElement(By.xpath("/html/body/main/div/div/div[1]/div[1]/div[2]/ul/li[15]/span" ));
                 MoveToFun.moveto(click_view_more,"Click view More");
+
                 MoveToFun.Clickfunction(click_view_more,"Clicking view more");
             } catch (Exception e) {
                 System.out.print("View more bikes click failed ");

@@ -9,7 +9,7 @@ public class Read_From_Excel {
 public static String value(int row, int col){
     String testdata = null;
     try {
-        String filePath = "C:\\Users\\hp\\IdeaProjects\\Final\\Excel\\Values.xlsx";//my excel file location
+        String filePath = "C:\\Users\\mma2928\\IdeaProjects\\Final\\Excel\\Values.xlsx";//my excel file location
         FileInputStream file = new FileInputStream(filePath);
         XSSFWorkbook wb = new XSSFWorkbook(file);//Getting the file
         XSSFSheet ws = wb.getSheetAt(0);//Getting from the sheet
