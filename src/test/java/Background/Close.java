@@ -1,9 +1,22 @@
 package Background;
 
-public class Close extends LoadDriver{
-    public static void closingTheBrowser(){
+import com.aventstack.extentreports.ExtentTest;
+import com.aventstack.extentreports.Status;
 
-        driver.close();//Close the Driver
+public class Close extends LoadDriver {
+    public static void closingTheBrowser() {
+        extent.attachReporter(reporter);
+        ExtentTest logger4 = extent.createTest("Browser Test");
+        logger4.log(Status.INFO, "Close the Application");
+        try {
+
+            driver.close();//Close the Driver
+            logger4.log(Status.PASS, "Browser Closed");
+        } catch (Exception e) {
+            logger4.log(Status.FAIL, "Browser Failed to close");
+        }
+        extent.flush();
     }
+
 
 }

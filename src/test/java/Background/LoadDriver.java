@@ -1,5 +1,9 @@
 package Background;
 
+import com.aventstack.extentreports.ExtentReports;
+import com.aventstack.extentreports.ExtentTest;
+import com.aventstack.extentreports.Status;
+import com.aventstack.extentreports.reporter.ExtentSparkReporter;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -15,14 +19,19 @@ import java.util.Properties;
 
 public class LoadDriver {
     public static WebDriver driver;
-    public static Actions act;
-    public static WebDriverWait wait;
     public static File file;
     public static FileInputStream fileinput;
     public static Properties prop;
+    public static ExtentSparkReporter reporter;
+    public static ExtentReports extent = new ExtentReports();
 
 
-    public static void launch() {
+    public static void launch(String reportname) {
+        reporter = new ExtentSparkReporter("./Reports/" + reportname + ".html");
+        extent.attachReporter(reporter);
+        ExtentTest logger1 = extent.createTest("Browser Test");
+        logger1.log(Status.INFO, "Open the Application");
+
         try {
 
             String filelocation = System.getProperty("user.dir") + "\\ApplicationProperty\\config.properties";//Properties file Location
@@ -47,11 +56,13 @@ public class LoadDriver {
             } else {
                 System.out.println("Invalid data...");
             }
-            act = new Actions(driver);
+            logger1.log(Status.PASS, "Browser opened");
         } catch (Exception e) {
             System.out.println("Browser Input");
             System.out.println(e);
+            logger1.log(Status.FAIL, "Browser Failed to open");
         }
+        extent.flush();
     }
 }
 

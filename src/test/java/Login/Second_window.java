@@ -10,14 +10,15 @@ import java.util.Set;
 import java.util.concurrent.TimeUnit;
 
 public class Second_window extends LoadDriver {
-   static Actions actions = new Actions(driver);
+    public static String Parent_window_id;
+    static Actions actions = new Actions(driver);
 
     public static void move_to_next_window() {
         try {
 
             Set<String> handler = driver.getWindowHandles();//To get the handler of parent and child window
             Iterator<String> it = handler.iterator();//To move to next handler
-            String Parent_window_id = it.next();
+            Parent_window_id = it.next();
             String Child_window_id = it.next();
             driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
             driver.switchTo().window(Child_window_id);//Switch to child browser
@@ -27,12 +28,16 @@ public class Second_window extends LoadDriver {
         }
     }
 
-    public static void passData(){
+    public static void passData() {
         WebElement element = driver.findElement(By.xpath("/html/body/div[1]/div[1]/div[2]/div/div[2]/div/div/div[2]/div/div[1]/div/form/span/section/div/div/div[1]/div/div[1]/div/div[1]/input"));
         actions.moveToElement(element);//Move to paticular element
         driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
         String email = "rman.com";
         element.sendKeys(email);//Send the data
         driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+    }
+
+    public static void switch_to() {
+        driver.switchTo().window(Parent_window_id);
     }
 }

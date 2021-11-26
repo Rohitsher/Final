@@ -10,9 +10,9 @@ import java.util.concurrent.TimeUnit;
 public class Clickon extends LoadDriver {
     public static void moveToLogin() {//move to login pop up button
         try{
-            Actions action=new Actions(driver);
-            WebElement element=driver.findElement
-                    (By.xpath("/html/body/header/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/div/div[1]/div"));
+            Actions action = new Actions(driver);
+            WebElement element = driver.findElement
+                    (By.xpath("/html/body/div[21]/div/div/div/div/div[3]/div[2]"));
 
             action.moveToElement(element).perform();//Here we move to The login button
             System.out.println("Moved to Login button");

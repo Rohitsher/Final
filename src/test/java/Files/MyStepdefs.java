@@ -21,7 +21,7 @@ import write.WriteInNotepad;
 public class MyStepdefs extends LoadDriver{
     @Given("Open the Webdriver")
     public void openTheWebdriver() {
-            LoadDriver.launch();//This function will launch the Driver
+            LoadDriver.launch("OpenURL");//This function will launch the Driver
     }
     @Then("Enter The  URL")
     public void enterTheURL() {
@@ -142,7 +142,10 @@ public class MyStepdefs extends LoadDriver{
 
     @Then("Screenshot capture")
     public void screenshotCapture() throws IOException {
-        Login.Screenshot.takeSnapShot(driver, "C:\\Users\\hp\\IdeaProjects\\Final\\Images//test1.png") ;//capture the screen shot
+
+        Login.Screenshot.takeSnapShot(driver, "C:\\Users\\hp\\IdeaProjects\\Final\\Images//test1.png");//capture the screen shot
+        Second_window.switch_to();
+        driver.quit();
     }
 }
 
